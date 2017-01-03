@@ -16,6 +16,8 @@ ENV TZ="Asia/Shanghai" \
     GLIBC_VERSION=2.23-r3 \
     LANG=C.UTF-8
 RUN npm install -g cnpm && cnpm install -g yarn
+RUN mkdir /root/.pomjs && cd /root/.pomjs && cnpm install pomjs --save
+
 RUN apk upgrade --update && \
     apk add --update libstdc++ curl ca-certificates bash && \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION} glibc-i18n-${GLIBC_VERSION}; do curl -sSL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
