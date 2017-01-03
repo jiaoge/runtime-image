@@ -15,8 +15,8 @@ ENV TZ="Asia/Shanghai" \
     PATH=${PATH}:/opt/jdk/bin \
     GLIBC_VERSION=2.23-r3 \
     LANG=C.UTF-8
-RUN npm install -g cnpm && cnpm install -g yarn
-RUN mkdir /root/.pomjs && cd /root/.pomjs && cnpm install pomjs --save && rm -f /root/.pomjs
+RUN npm install -g cnpm 
+RUN mkdir /root/.pomjs && cd /root/.pomjs && cnpm install pomjs --save && cd /root && rm -f /root/.pomjs
 
 RUN apk upgrade --update && \
     apk add --update libstdc++ curl ca-certificates bash && \
