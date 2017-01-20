@@ -2,7 +2,7 @@ FROM alpine:3.4
 
 ENV TZ="Asia/Shanghai"
 
-RUN apk update;apk add curl bash nodejs libc6-compat
+RUN apk update;apk add curl bash nodejs libc6-compat python
 
 # Java Version and other ENV
 ENV TZ="Asia/Shanghai" \
