@@ -17,7 +17,6 @@ ENV TZ="Asia/Shanghai" \
     GLIBC_VERSION=2.23-r3 \
     LANG=C.UTF-8
 RUN npm install -g cnpm 
-RUN mkdir /root/.pomjs && cd /root/.pomjs && cnpm install pomjs --registry=https://registry.npmjs.org/ --save && cd /root && rm -rf /root/.pomjs
 
 RUN apk upgrade --update && \
     apk add --update libstdc++ curl ca-certificates bash && \
@@ -77,6 +76,7 @@ RUN apk upgrade --update && \
 
 
 
+RUN mkdir /root/.pomjs && cd /root/.pomjs && cnpm install pomjs --registry=https://registry.npmjs.org/ --save && cd /root && rm -rf /root/.pomjs
 
 
 WORKDIR /root
